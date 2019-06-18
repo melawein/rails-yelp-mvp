@@ -14,4 +14,11 @@
   <%= @restaurant.category %>
   </p>
 
-<%= link_to 'Back', restaurants_path  %>
+  <p><strong>Review</strong></p>
+  <% @restaurant.reviews.each do |review| %>
+  <p><%= review.content %> <%= review.rating %></p>
+  <% end %>
+
+
+<%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-outline-info btn-sm"  %> |
+<%= link_to 'Back', restaurants_path, class: "btn btn-outline-info btn-sm"  %>
